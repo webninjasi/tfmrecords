@@ -1,0 +1,15 @@
+{
+  "name": "TFM Records",
+  "short_name": "TFM Records",
+  "start_url": "/tfmrecords/",
+  "scope": "/tfmrecords/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/tfmrecords/favicon.svg",
+      "sizes": "512x512"
+    }
+  ]
+}
