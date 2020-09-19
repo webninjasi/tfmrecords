@@ -14,6 +14,7 @@ jobs:
         with:
           repository: ${{ secrets.REPO_HUGO }}
           token: ${{ secrets.GPAT }}
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
       - name: Checkout Hugo Data
         uses: actions/checkout@v2
