@@ -22,6 +22,7 @@ jobs:
           repository: ${{ secrets.REPO_DATA }}
           token: ${{ secrets.GPAT }}
           path: ./data/
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
       - name: Use Node.js 8.x
         uses: actions/setup-node@v1
