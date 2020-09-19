@@ -22,7 +22,9 @@ jobs:
           repository: ${{ secrets.REPO_DATA }}
           token: ${{ secrets.GPAT }}
           path: ./data/
-          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+
+      - name: Remove .git form Data
+        run: rm -r ./data/.git/
 
       - name: Use Node.js 8.x
         uses: actions/setup-node@v1
