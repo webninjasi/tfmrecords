@@ -1,0 +1,45 @@
+name: github pages
+
+on:
+  repository_dispatch:
+    types: [bot_update]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    
+    steps:
+      - name: Checkout Hugo Files
+        uses: actions/checkout@v2
+        with:
+          repository: ${{ secrets.REPO_HUGO }}
+          token: ${{ secrets.GPAT }}
+
+      - name: Checkout Hugo Data
+        uses: actions/checkout@v2
+        with:
+          repository: ${{ secrets.REPO_DATA }}
+          token: ${{ secrets.GPAT }}
+          path: ./data/
+
+      - name: Use Node.js 8.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 8.x
+      
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.70.0'
+          extended: true
+      - run: node update-pages.js
+
+      - name: Build
+        run: hugo --minify
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          full_commit_message: Update ${{ github.event.head_commit.id }}
