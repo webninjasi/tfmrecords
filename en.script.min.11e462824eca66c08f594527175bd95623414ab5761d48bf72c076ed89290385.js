@@ -19,5 +19,5 @@ for(var k in toggles){$('#'+toggles[k]).click();}}
 function switchTheme(e){var checked=$(this).is(":checked");if(checked){document.documentElement.setAttribute('data-theme','dark');localStorage.setItem('theme','dark');}
 else{document.documentElement.setAttribute('data-theme','light');localStorage.setItem('theme','light');}
 $('.theme-switch input[type="checkbox"]').attr('checked',checked);}
-function loadTheme(){const currentTheme=localStorage.getItem('theme')?localStorage.getItem('theme'):null;if(currentTheme){document.documentElement.setAttribute('data-theme',currentTheme);if(currentTheme==='dark'){$('.theme-switch input[type="checkbox"]').attr('checked',true);}}}
+function loadTheme(){const currentTheme=localStorage.getItem('theme')?localStorage.getItem('theme'):null;if(currentTheme){document.documentElement.setAttribute('data-theme',currentTheme);if(currentTheme==='dark'){$('.theme-switch input[type="checkbox"]').attr('checked',true);}else{$('.theme-switch input[type="checkbox"]').attr('checked',false);}}}
 $('.theme-switch input[type="checkbox"]').change(switchTheme);loadTheme();});
