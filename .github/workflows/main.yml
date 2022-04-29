@@ -26,10 +26,10 @@ jobs:
       - name: Remove .git form Data
         run: rm -r ./data/.git/
 
-      - name: Use Node.js 8.x
+      - name: Use Node.js 16.x
         uses: actions/setup-node@v1
         with:
-          node-version: 8.x
+          node-version: 16.x
       
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
