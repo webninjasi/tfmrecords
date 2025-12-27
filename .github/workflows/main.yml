@@ -13,14 +13,12 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: ${{ secrets.REPO_HUGO }}
-          token: ${{ secrets.GPAT }}
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
       - name: Checkout Hugo Data
         uses: actions/checkout@v2
         with:
           repository: ${{ secrets.REPO_DATA }}
-          token: ${{ secrets.GPAT }}
           path: ./data/
 
       - name: Remove .git form Data
